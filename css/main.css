@@ -1,0 +1,114 @@
+:root{
+    --primary-color:rgb(112, 36, 49);
+    --secondary-color: rgb(47, 159, 47);
+    --light-color: rgb(224, 219, 219);
+    --dark-color:rgb(25, 7, 7);
+    --body-fonts:arial;
+    --heading-font: 'Courier New';
+    --medium-font-sizw:1.25rem;
+}
+
+body{
+    font-family: var(--body-fonts);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: var(--heading-font);
+}
+
+/*.is class selector*/
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* space is descent combinator */
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    flex: 1;
+}
+
+/* loVe HaTe */
+nav li a,
+nav li a:link,
+nav li a:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color:var(--primary-color);
+    transition: transform .5s;
+}
+
+nav li a:hover,
+nav li a:focus{
+    transform: scale(1.4);
+    text-decoration: underline;
+}
+
+nav li a:active{
+    transition-duration: .2s;
+    transform: scale(1.4)  translateX(10px);
+}
+
+/* is child combinator */
+main > p{
+    font-size: var(--medium-font-sizw);
+}
+
+/* is adjacent combinator */
+h2 + p{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 1rem;
+}
+
+/* is sibling combinator */
+.star span{
+    cursor: pointer;
+    transition: opacity .3s;
+}
+
+.star span:hover~span{
+    opacity: .4;
+}
+
+/* [] is the selector attribute */
+a[href="#"]{
+    border: 1px solid var(--secondary-color);
+}
+
+a[href$=".pdf"]{
+    display: block;
+    border-left: 8px solid var(--secondary-color);
+    background-color: var(--primary-color);
+
+    width: calc(100% - 3rem -8px);
+    padding: 1rem;
+    margin: .5rem;
+    color: white;
+}
+
+a[href$=".pdf"]::after{
+    content: "\2193";
+    font-size: var(--medium-font-sizw);
+    font-weight: bold;
+}
+
+h2 +p::first-line{
+    color: var(--dark-color);
+}
+
+h3 +p::first-letter{
+    background-color: var(--primary-color);
+    color: var(--primary-color);
+    padding: .5rem;
+    margin-right: .10rem;
+    font-size: var(--medium-font-sizw);
+
+}
